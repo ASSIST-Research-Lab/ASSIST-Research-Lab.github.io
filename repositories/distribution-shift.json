@@ -1,0 +1,16 @@
+{
+    "id": "distribution-shift",
+    "name": "Distribution Shift Lane Perception",
+    "type": "Pipeline",
+    "type_color": "cyan",
+    "language": "Python",
+    "description": "A PyTorch-based framework and evaluation pipeline for detecting and quantifying distribution shift in visual lane perception datasets using autoencoder feature extraction and statistical two-sample hypothesis testing.",
+    "highlights": [
+        "Statistical two-sample shift detection (MMD, Energy, BKS) via percentile-calibrated thresholds",
+        "Flexible ResNet-18 autoencoder feature extraction with custom, pre-trained, or random weight support",
+        "Interactive web GUI command generator and built-in synthetic domain shift perturbation tools"
+    ],
+    "license": "",
+    "version": "0.2.0",
+    "url": "https://github.com/hafeezkhan909/Distribution-Shift-Lane-Perception/"
+}

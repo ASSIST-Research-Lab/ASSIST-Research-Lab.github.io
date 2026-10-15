@@ -1,0 +1,11 @@
+{
+    "id": "assist-taxi",
+    "name": "The AssistTaxi Dataset",
+    "type": "Pipeline",
+    "type_color": "cyan",
+    "language": "Python",
+    "description": "A multi-airport dataset for runway and taxiway scene understanding, spanning day, dusk, and night conditions across three U.S. airports. This expanded dataset incorporates over 900,000 high-resolution frames collected from general aviation and commercial airports during day, night, and varying weather scenarios. The dataset also provides fine-grained annotations using a semi-automated labeling pipeline across temporally consistent video frames, significantly reducing manual intervention while increasing annotation accuracy. AssistTaxi offers a valuable benchmark for training, evaluating, and validating AI models intended for autonomous ground operations in aviation.",
+    "license": "",
+    "version": "2.0",
+    "url": "https://assist-research-lab.github.io/AssistTaxiDataset/"
+}
