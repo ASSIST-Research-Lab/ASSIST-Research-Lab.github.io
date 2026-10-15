@@ -1,0 +1,11 @@
+{
+  "id": "assist-taxi",
+  "title": "AssistTaxi: A Comprehensive Dataset for Taxiway Analysis and Autonomous Operations",
+  "authors": "Parth Ganeriwala, Siddhartha Bhattacharyya, Sean Gunther, Brian Kish, Mohammed Abdul Hafeez Khan, Ankur Dhadoti, Natasha Neogi",
+  "venue": "2023 IEEE International Conference on Machine Learning and Applications (ICMLA)",
+  "year": "2023",
+  "topic": "flight",
+  "topicName": "Avionics & Flight",
+  "abstract": "The availability of high-quality datasets play a crucial role in advancing research and development especially, for safety critical and autonomous systems. In this paper, we present AssistTaxi, a comprehensive novel dataset which is a collection of images for runway and taxiway analysis. The dataset comprises of more than 300,000 frames of diverse and carefully collected data, gathered from Melbourne (MLB) and Grant-Valkaria (X59) general aviation airports. The importance of AssistTaxi lies in its potential to advance autonomous operations, enabling researchers and developers to train and evaluate algorithms for efficient and safe taxiing. Researchers can utilize AssistTaxi to benchmark their algorithms, assess performance, and explore novel approaches for runway and taxiway analysis. Addition-ally, the dataset serves as a valuable resource for validating and enhancing existing algorithms, facilitating innovation in autonomous operations for aviation. We also propose an initial approach to label the dataset using a contour based detection and line extraction technique.",
+  "bibtex": "@inproceedings{Ganeriwala_2023,\n   title={AssistTaxi: A Comprehensive Dataset for Taxiway Analysis and Autonomous Operations},\n   url={http://dx.doi.org/10.1109/ICMLA58977.2023.00163},\n   DOI={10.1109/icmla58977.2023.00163},\n   booktitle={2023 International Conference on Machine Learning and Applications (ICMLA)},\n   publisher={IEEE},\n   author={Ganeriwala, Parth and Bhattacharyya, Siddhartha and Gunther, Sean and Kish, Brian and Khan, Mohammed Abdul Hafeez and Dhadoti, Ankur and Neogi, Natasha},\n   year={2023},\n   month=Dec, pages={1094–1099} }"
+}

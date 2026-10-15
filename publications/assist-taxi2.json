@@ -1,0 +1,11 @@
+{
+  "id": "assist-taxi2",
+  "title": "AssistTaxi-v2: A Scalable Dataset for Taxiway/Runway Scene Understanding Under Diverse Conditions",
+  "authors": "Parth Ganeriwala, Mohammad Abdul Hafeez Khan, Amy Alvarez, Siddhartha Bhattacharyya, Natasha A. Neogi and Sarah Lehman",
+  "venue": "AIAA 2026-1774",
+  "year": "2026",
+  "topic": "flight",
+  "topicName": "Avionics & Flight",
+  "abstract": "The advancement of autonomous taxiing technologies in aviation necessitates access to diverse, high-quality datasets that capture real-world conditions across a range of environments. Building upon our prior release of AssistTaxi, we extend the image/video dataset for aircraft taxiway perception by increasing the diversity of the dataset with varying environmental conditions. This expanded dataset incorporates over 900,000 high-resolution frames collected from general aviation and commercial airports during day, night, and varying weather scenarios. The dataset also provides fine-grained annotations using a semi-automated labeling pipeline across temporally consistent video frames, significantly reducing manual intervention while increasing annotation accuracy. AssistTaxi offers a valuable benchmark for training, evaluating, and validating AI models intended for autonomous ground operations in aviation. We anticipate this dataset to enable further research in transfer learning, robust perception, machine learning engineering, and safety assurance for vision-based aircraft navigation systems.",
+  "bibtex": "@INPROCEEDINGS{Ganeriwala2026-ua,\n  title      = \"{AssistTaxi-v2}: A scalable dataset for taxiway/runway scene\n                understanding under diverse conditions\",\n  booktitle  = \"{AIAA} {SCITECH} 2026 Forum\",\n  author     = \"Ganeriwala, Parth and Khan, Mohammad Abdul Hafeez and Alvarez,\n                Amy and Bhattacharyya, Siddhartha and Neogi, Natasha A and\n                Lehman, Sarah\",\n  publisher  = \"American Institute of Aeronautics and Astronautics\",\n  month      =  jan,\n  year       =  2026,\n  address    = \"Reston, Virginia\",\n  conference = \"AIAA SCITECH 2026 Forum\",\n  location   = \"Orlando, FL\"\n}"
+}
