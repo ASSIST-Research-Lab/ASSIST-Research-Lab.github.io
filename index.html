@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +13,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'hud-black': '#06080c',
-                        'hud-card': 'rgba(10, 15, 26, 0.82)',
-                        'hud-cyan': '#00f0ff',
-                        'hud-cyan-dark': '#008b99',
-                        'hud-green': '#00ff66',
-                        'assist-purple': '#a855f7',
-                        'assist-purple-dark': '#6b21a8',
-                        'hud-border': 'rgba(0, 240, 255, 0.25)',
-                        'hud-amber': '#ff9900'
+                        'hud-black': '#f8fafc',
+                        'hud-card': 'rgba(255, 255, 255, 0.90)',
+                        'hud-cyan': '#0284c7',
+                        'hud-cyan-dark': '#0369a1',
+                        'hud-green': '#15803d',
+                        'assist-purple': '#7e22ce',
+                        'assist-purple-dark': '#581c87',
+                        'hud-border': 'rgba(2, 132, 199, 0.25)',
+                        'hud-amber': '#d97706'
                     },
                     fontFamily: {
                         serif: ['Newsreader', 'Georgia', 'serif'],
@@ -42,11 +42,11 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom Tactical HUD CSS Rules -->
+    <!-- Custom Tactical HUD CSS Rules (Light Mode) -->
     <style>
         body {
-            background-color: #06080c;
-            color: #e2e8f0;
+            background-color: #f8fafc;
+            color: #1e293b;
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -56,19 +56,19 @@
         .hud-grid {
             background-size: 40px 40px;
             background-image: 
-                linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+                linear-gradient(to right, rgba(2, 132, 199, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(2, 132, 199, 0.08) 1px, transparent 1px);
         }
 
         .hud-scanlines {
             background: linear-gradient(
-                rgba(18, 16, 16, 0) 50%, 
-                rgba(0, 0, 0, 0.35) 50%
+                rgba(255, 255, 255, 0) 50%, 
+                rgba(0, 0, 0, 0.03) 50%
             ), linear-gradient(
                 90deg,
-                rgba(255, 0, 0, 0.02),
+                rgba(255, 0, 0, 0.01),
                 rgba(0, 255, 0, 0.01),
-                rgba(0, 0, 255, 0.02)
+                rgba(0, 0, 255, 0.01)
             );
             background-size: 100% 4px, 6px 100%;
         }
@@ -76,16 +76,16 @@
         /* HUD Corner Brackets for Cards */
         .hud-card {
             position: relative;
-            background: rgba(8, 12, 22, 0.82);
+            background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(2, 132, 199, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .hud-card:hover {
-            border-color: rgba(0, 240, 255, 0.6);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+            border-color: rgba(2, 132, 199, 0.6);
+            box-shadow: 0 6px 24px rgba(2, 132, 199, 0.12);
         }
 
         .hud-card::before {
@@ -93,8 +93,8 @@
             position: absolute;
             top: -1px; left: -1px;
             width: 10px; height: 10px;
-            border-top: 2px solid #00f0ff;
-            border-left: 2px solid #00f0ff;
+            border-top: 2px solid #0284c7;
+            border-left: 2px solid #0284c7;
             pointer-events: none;
         }
 
@@ -103,26 +103,26 @@
             position: absolute;
             bottom: -1px; right: -1px;
             width: 10px; height: 10px;
-            border-bottom: 2px solid #00f0ff;
-            border-right: 2px solid #00f0ff;
+            border-bottom: 2px solid #0284c7;
+            border-right: 2px solid #0284c7;
             pointer-events: none;
         }
 
         .hud-card-purple::before {
-            border-top-color: #a855f7;
-            border-left-color: #a855f7;
+            border-top-color: #7e22ce;
+            border-left-color: #7e22ce;
         }
         .hud-card-purple::after {
-            border-bottom-color: #a855f7;
-            border-right-color: #a855f7;
+            border-bottom-color: #7e22ce;
+            border-right-color: #7e22ce;
         }
 
         /* Glow Effects */
         .hud-glow-cyan {
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+            text-shadow: 0 0 8px rgba(2, 132, 199, 0.25);
         }
         .hud-glow-purple {
-            text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+            text-shadow: 0 0 8px rgba(126, 34, 206, 0.25);
         }
 
         /* Custom Scrollbar */
@@ -131,12 +131,12 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #06080c;
-            border-left: 1px solid rgba(0, 240, 255, 0.2);
+            background: #f1f5f9;
+            border-left: 1px solid rgba(2, 132, 199, 0.2);
         }
         ::-webkit-scrollbar-thumb {
-            background: #00f0ff;
-            box-shadow: 0 0 8px #00f0ff;
+            background: #0284c7;
+            box-shadow: 0 0 6px rgba(2, 132, 199, 0.4);
         }
 
         /* Accordion CSS */
@@ -161,32 +161,31 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-hud-cyan selection:text-hud-black relative">
+<body class="min-h-screen flex flex-col selection:bg-hud-cyan selection:text-white relative">
 
     <!-- ========================================== -->
     <!-- 1. DUAL-PLAYER CROSSFADING BACKGROUND VIDEO -->
     <!-- ========================================== -->
-    <div class="fixed inset-0 w-full h-full z-[-3] overflow-hidden pointer-events-none bg-hud-black">
-        <video id="hud-bg-video-1" autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover filter brightness-[0.40] contrast-[1.15] saturate-[0.8] transition-opacity duration-1000 opacity-100"></video>
-        <video id="hud-bg-video-2" muted playsinline class="absolute inset-0 w-full h-full object-cover filter brightness-[0.40] contrast-[1.15] saturate-[0.8] transition-opacity duration-1000 opacity-0"></video>
+    <div class="fixed inset-0 w-full h-full z-[-3] overflow-hidden pointer-events-none bg-slate-50">
+        <video id="hud-bg-video-1" autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover filter brightness-[1.05] contrast-[1.05] opacity-75 transition-opacity duration-1000 opacity-100"></video>
+        <video id="hud-bg-video-2" muted playsinline class="absolute inset-0 w-full h-full object-cover filter brightness-[1.05] contrast-[1.05] opacity-100 transition-opacity duration-1000 opacity-0"></video>
     </div>
 
     <!-- HUD Grid and Scanline Overlay Layers -->
-    <div class="fixed inset-0 w-full h-full z-[-2] pointer-events-none hud-grid hud-scanlines bg-gradient-to-b from-hud-black/90 via-hud-black/60 to-hud-black/95"></div>
-
+    <div class="fixed inset-0 w-full h-full z-[-2] pointer-events-none hud-grid hud-scanlines bg-gradient-to-b from-slate-50/90 via-slate-50/70 to-slate-25/95"></div>
 
     <!-- Target Reticle Overlay Graphics -->
-    <div class="fixed top-12 left-4 w-6 h-6 border-t-2 border-l-2 border-hud-cyan/40 pointer-events-none z-30"></div>
-    <div class="fixed top-12 right-4 w-6 h-6 border-t-2 border-r-2 border-hud-cyan/40 pointer-events-none z-30"></div>
-    <div class="fixed bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-hud-cyan/40 pointer-events-none z-30"></div>
-    <div class="fixed bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-hud-cyan/40 pointer-events-none z-30"></div>
+    <div class="fixed top-12 left-4 w-6 h-6 border-t-2 border-l-2 border-hud-cyan/50 pointer-events-none z-30"></div>
+    <div class="fixed top-12 right-4 w-6 h-6 border-t-2 border-r-2 border-hud-cyan/50 pointer-events-none z-30"></div>
+    <div class="fixed bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-hud-cyan/50 pointer-events-none z-30"></div>
+    <div class="fixed bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-hud-cyan/50 pointer-events-none z-30"></div>
 
     <!-- ========================================== -->
     <!-- 2. ANNOUNCEMENT & NAVIGATION HEADER -->
     <!-- ========================================== -->
-    <div class="bg-hud-black/90 border-b border-hud-cyan/30 text-hud-cyan text-xs py-1.5 px-4 backdrop-blur-md relative z-40">
+    <div class="bg-slate-100/90 border-b border-hud-cyan/30 text-hud-cyan text-xs py-1.5 px-4 backdrop-blur-md relative z-40">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center font-mono text-[10px] tracking-wider uppercase">
-            <span class="flex items-center gap-2">
+            <span class="flex items-center gap-2 text-slate-700 font-semibold">
                 <span class="inline-block w-2 h-2 rounded-full bg-hud-green animate-pulse"></span>
                 Florida Institute of Technology
             </span>
@@ -197,55 +196,55 @@
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 bg-hud-black/85 backdrop-blur-md border-b border-hud-cyan/30">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-hud-cyan/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center space-x-4">
                     <a href="#" class="flex items-center">
-                        <img src="logo.png" alt="ASSIST Lab Logo" class="h-12 w-auto filter drop-shadow-[0_0_8px_rgba(0,240,255,1)]">
+                        <img src="logo.png" alt="ASSIST Lab Logo" class="h-12 w-auto filter drop-shadow-[0_0_6px_rgba(2,132,199,0.3)]">
                     </a>
                     <div class="hidden md:block pl-4 border-l border-hud-cyan/30 h-10 flex flex-col justify-center">
                         <span class="font-grotesk font-bold text-lg leading-tight tracking-wider text-hud-cyan hud-glow-cyan">ASSIST LAB</span>
                     </br>
-                        <span class="text-[9px] font-mono tracking-widest text-slate-400 uppercase">Assured Safety, Security &amp; Intent</span>
+                        <span class="text-[9px] font-mono tracking-widest text-slate-500 uppercase">Assured Safety, Security &amp; Intent</span>
                     </div>
                 </div>
 
                 <!-- Navigation Links -->
                 <nav class="hidden lg:flex items-center space-x-1 font-mono text-xs uppercase tracking-wider">
-                    <a href="#about" class="px-3 py-2 border border-transparent text-slate-300 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">01. Overview</a>
-                    <a href="#domains" class="px-3 py-2 border border-transparent text-slate-300 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">02. Domains</a>
-                    <a href="#people" class="px-3 py-2 border border-transparent text-slate-300 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">03. Personnel</a>
-                    <a href="#publications" class="px-3 py-2 border border-transparent text-slate-300 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">04. Publications</a>
-                    <a href="#repositories" class="px-3 py-2 border border-transparent text-slate-300 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">05. Repositories</a>
-                    <a href="#contact" class="px-4 py-2 bg-assist-purple/20 text-hud-cyan border border-assist-purple hover:bg-assist-purple/40 hover:text-white transition-all shadow-[0_0_10px_rgba(168,85,247,0.3)]">06. Contact</a>
+                    <a href="#about" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">01. Overview</a>
+                    <a href="#domains" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">02. Domains</a>
+                    <a href="#people" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">03. Personnel</a>
+                    <a href="#publications" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">04. Publications</a>
+                    <a href="#repositories" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">05. Repositories</a>
+                    <a href="#contact" class="px-4 py-2 bg-assist-purple/10 text-assist-purple border border-assist-purple hover:bg-assist-purple hover:text-white transition-all shadow-[0_0_10px_rgba(126,34,206,0.15)]">06. Contact</a>
                 </nav>
 
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan/20">
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan/10">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-hud-cyan/30 bg-hud-black/95 p-4 font-mono text-xs uppercase tracking-wider space-y-2">
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-200 hover:border-hud-cyan hover:bg-hud-cyan/10">01. Overview</a>
-            <a href="#domains" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-200 hover:border-hud-cyan hover:bg-hud-cyan/10">02. Domains</a>
-            <a href="#people" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-200 hover:border-hud-cyan hover:bg-hud-cyan/10">03. Personnel</a>
-            <a href="#publications" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-200 hover:border-hud-cyan hover:bg-hud-cyan/10">04. Publications</a>
-            <a href="#repositories" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-200 hover:border-hud-cyan hover:bg-hud-cyan/10">05. Repositories</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-assist-purple/30 text-hud-cyan border border-assist-purple">06. Contact</a>
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-hud-cyan/30 bg-white/95 p-4 font-mono text-xs uppercase tracking-wider space-y-2">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">01. Overview</a>
+            <a href="#domains" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">02. Domains</a>
+            <a href="#people" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">03. Personnel</a>
+            <a href="#publications" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">04. Publications</a>
+            <a href="#repositories" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">05. Repositories</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-assist-purple/10 text-assist-purple border border-assist-purple">06. Contact</a>
         </div>
     </header>
 
-    <main class="flex-grow relative z-10">
+    <main class="flex-grow relative z-10 bg-white/25">
         
         <!-- SECTION 01: HERO / LAB OVERVIEW -->
         <section id="about" class="border-b border-hud-cyan/20 py-12 md:py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-6">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-hud-black font-mono text-xs font-bold uppercase tracking-wider">01 / OVERVIEW</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase tracking-wider">01 / OVERVIEW</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
-                    <span class="font-mono text-xs uppercase text-hud-cyan/70 tracking-widest"><i class="fa-solid fa-satellite-dish mr-1"></i> FLORIDA TECH</span>
+                    <span class="font-mono text-xs uppercase text-hud-cyan tracking-widest"><i class="fa-solid fa-satellite-dish mr-1"></i> FLORIDA TECH</span>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -255,32 +254,32 @@
                                 <span class="w-2 h-2 bg-hud-green rounded-full animate-ping"></span>
                                 SYSTEM SAFETY • FORMAL VERIFICATION • CYBER-PHYSICAL TRUST
                             </div>
-                            <h1 class="font-grotesk text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                                Assured <span class="text-hud-cyan hud-glow-cyan">Safety, Security</span> &amp; Intent with Systematic Tactics
+                            <h1 class="font-grotesk text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
+                                Assured <span class="text-hud-cyan hud-glow-cyan">Safety</span>, <span class="text-hud-cyan hud-glow-cyan">Security</span> &amp; <span class="text-hud-cyan hud-glow-cyan">Intent</span> with <span class="text-hud-cyan hud-glow-cyan">Systematic Tactics</span>
                             </h1>
                             
-                            <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed font-sans font-light bg-hud-card/60 p-5 border-l-2 border-hud-cyan">
-                                The ASSIST Research Lab was established in support of the Harris Institute of Assured Information to advance innovative research in developing assurance technologies. The ASSIST Research Lab is directed by <strong class="font-semibold text-hud-cyan">Dr. Siddhartha Bhattacharyya</strong>. The research focuses on the application of theories to practice. As a result, the research involves collaborative efforts with industry, academic, and national lab partners. Some of the present projects are related to providing assurance for Autonomous Systems, Avionics, Internet of Things, Communication Systems, Cyber Security, and Systems Biology.
+                            <p class="mt-6 text-base sm:text-lg text-slate-700 leading-relaxed font-sans font-normal bg-white/80 p-5 border-l-4 border-hud-cyan shadow-sm">
+                                The ASSIST Research Lab was established in support of the Harris Institute of Assured Information at the <strong class="font-semibold text-[#770000]">Florida Institute of Technology</strong> to advance innovative research in developing assurance technologies. The ASSIST Research Lab is directed by <strong class="font-semibold text-hud-cyan">Dr. Siddhartha Bhattacharyya</strong>. The research focuses on the application of theories to practice. As a result, the research involves collaborative efforts with industry, academic, and national lab partners. Some of the present projects are related to providing assurance for Autonomous Systems, Avionics, Internet of Things, Communication Systems, Cyber Security, and Systems Biology.
                             </p>
                         </div>
 
                         <!-- Key Impact Metrics -->
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-hud-cyan/20 mt-6">
                             <div class="p-4 hud-card">
-                                <div class="font-mono text-3xl sm:text-4xl font-bold text-hud-cyan hud-glow-cyan">$3M+</div>
-                                <div class="font-mono text-[10px] uppercase text-slate-400 mt-1 font-semibold">Active Grants</div>
+                                <div class="font-mono text-3xl sm:text-4xl font-bold text-hud-cyan hud-glow-cyan">NASA</div>
+                                <div class="font-mono text-[10px] uppercase text-slate-600 mt-1 font-semibold">Active Grants</div>
                             </div>
                             <div class="p-4 hud-card">
-                                <div class="font-mono text-3xl sm:text-4xl font-bold text-hud-cyan hud-glow-cyan">50+</div>
-                                <div class="font-mono text-[10px] uppercase text-slate-400 mt-1 font-semibold">Peer Publications</div>
+                                <div class="font-mono text-3xl sm:text-4xl font-bold text-hud-cyan hud-glow-cyan">80+</div>
+                                <div class="font-mono text-[10px] uppercase text-slate-600 mt-1 font-semibold">Peer Publications</div>
                             </div>
                             <div class="p-4 hud-card">
                                 <div class="font-mono text-3xl sm:text-4xl font-bold text-assist-purple hud-glow-purple">DARPA</div>
-                                <div class="font-mono text-[10px] uppercase text-slate-400 mt-1 font-semibold">&amp; NASA Awards</div>
+                                <div class="font-mono text-[10px] uppercase text-slate-600 mt-1 font-semibold">Active Grants</div>
                             </div>
                             <div class="p-4 hud-card">
                                 <div class="font-mono text-3xl sm:text-4xl font-bold text-hud-green">OEC 313</div>
-                                <div class="font-mono text-[10px] uppercase text-slate-400 mt-1 font-semibold">Lab Headquarters</div>
+                                <div class="font-mono text-[10px] uppercase text-slate-600 mt-1 font-semibold">Lab Headquarters</div>
                             </div>
                         </div>
                     </div>
@@ -291,43 +290,43 @@
                                 <span class="text-xs uppercase tracking-wider text-assist-purple font-bold flex items-center">
                                     <i class="fa-solid fa-radar mr-2 text-hud-cyan animate-spin"></i> SPONSORS &amp; INITIATIVES
                                 </span>
-                                <span class="text-[10px] bg-hud-black px-2 py-0.5 border border-hud-cyan/40 text-hud-cyan">REV 2026</span>
+                                <span class="text-[10px] bg-slate-100 px-2 py-0.5 border border-hud-cyan/40 text-hud-cyan font-bold">REV 2026</span>
                             </div>
 
-                            <h2 class="font-grotesk text-2xl font-bold text-white mb-3">Institutional Partnerships &amp; Grants</h2>
+                            <h2 class="font-grotesk text-2xl font-bold text-slate-900 mb-3">Institutional Partnerships &amp; Grants</h2>
                             
-                            <p class="font-sans text-xs text-slate-300 leading-relaxed mb-6">
+                            <p class="font-sans text-xs text-slate-600 leading-relaxed mb-6">
                                 Our researchers develop high-assurance software frameworks and contract-based safety layers funded by premier defense and aerospace entities:
                             </p>
 
                             <div class="space-y-3 font-mono text-xs">
-                                <div class="p-3 border border-hud-cyan/20 bg-hud-black/60 flex items-start space-x-3 hover:border-hud-cyan/60 transition-all">
+                                <div class="p-3 border border-hud-cyan/20 bg-slate-50/90 flex items-start space-x-3 hover:border-hud-cyan/60 transition-all">
                                     <i class="fa-solid fa-shield-halved text-hud-cyan text-base mt-0.5"></i>
                                     <div>
-                                        <div class="font-bold text-white">DARPA &amp; ONR Initiatives</div>
-                                        <div class="text-[11px] text-slate-400">Intent recognition, adversarial robustness &amp; swarm safety.</div>
+                                        <div class="font-bold text-slate-900">DARPA &amp; ONR Initiatives</div>
+                                        <div class="text-[11px] text-slate-600">Intent recognition, adversarial robustness &amp; swarm safety.</div>
                                     </div>
                                 </div>
 
-                                <div class="p-3 border border-hud-cyan/20 bg-hud-black/60 flex items-start space-x-3 hover:border-hud-cyan/60 transition-all">
+                                <div class="p-3 border border-hud-cyan/20 bg-slate-50/90 flex items-start space-x-3 hover:border-hud-cyan/60 transition-all">
                                     <i class="fa-solid fa-plane text-assist-purple text-base mt-0.5"></i>
                                     <div>
-                                        <div class="font-bold text-white">NASA Langley (LaRC) ADLAAVS</div>
-                                        <div class="text-[11px] text-slate-400">Autonomous airfield navigation &amp; runway safety vision systems.</div>
+                                        <div class="font-bold text-slate-900">NASA Langley (LaRC) ADLAAVS</div>
+                                        <div class="text-[11px] text-slate-600">Autonomous airfield navigation &amp; runway safety vision systems.</div>
                                     </div>
                                 </div>
 
-                                <div class="p-3 border border-hud-cyan/20 bg-hud-black/60 flex items-start space-x-3 hover:border-hud-cyan/60 transition-all">
+                                <div class="p-3 border border-hud-cyan/20 bg-slate-50/90 flex items-start space-x-3 hover:border-hud-cyan/60 transition-all">
                                     <i class="fa-solid fa-building-columns text-hud-green text-base mt-0.5"></i>
                                     <div>
-                                        <div class="font-bold text-white">L3Harris Institute &amp; AFRL</div>
-                                        <div class="text-[11px] text-slate-400">Assured information, cyber-physical resilience &amp; hardware-in-loop testing.</div>
+                                        <div class="font-bold text-slate-900">L3Harris Institute &amp; AFRL</div>
+                                        <div class="text-[11px] text-slate-600">Assured information, cyber-physical resilience &amp; hardware-in-loop testing.</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-6 pt-4 border-t border-hud-cyan/20 flex justify-between items-center font-mono text-[11px] text-slate-400">
+                        <div class="mt-6 pt-4 border-t border-hud-cyan/20 flex justify-between items-center font-mono text-[11px] text-slate-600">
                             <span>LOCATION: OEC 313</span>
                             <span class="text-hud-green font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1 text-hud-green animate-pulse"></i> ACTIVE LAB</span>
                         </div>
@@ -340,12 +339,12 @@
         <section id="domains" class="border-b border-hud-cyan/20 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-8">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-hud-black font-mono text-xs font-bold uppercase">02 / CORE DOMAINS</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">02 / CORE DOMAINS</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
-                    <span class="font-mono text-xs uppercase text-hud-cyan/70">RESEARCH PILLARS</span>
+                    <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">RESEARCH PILLARS</span>
                 </div>
 
-                <p class="mb-8 text-base text-slate-300 leading-relaxed font-sans font-light bg-hud-card p-4 border border-hud-cyan/20">
+                <p class="mb-8 text-base text-slate-700 leading-relaxed font-sans font-normal bg-white/80 p-4 border border-hud-cyan/20 shadow-sm">
                     ASSIST (Assured Safety, Security and Intent with Systematic Tactics) Research Lab focuses on the design and development of assurance frameworks for mission-critical, safety-critical, and security-critical systems. The assurance frameworks designed integrate tools based on theories of computation, formal methods, model-based engineering, architecture analysis, and software/systems engineering principles.
                 </p>
 
@@ -356,14 +355,14 @@
                                 <span class="text-xs text-hud-cyan font-bold">DOMAIN 01</span>
                                 <i class="fa-solid fa-brain text-assist-purple text-lg"></i>
                             </div>
-                            <h3 class="font-grotesk text-xl font-bold mb-3 text-white group-hover:text-hud-cyan transition-colors">
-                                Cognitive Intelligence &amp; Intent Recognition
+                            <h3 class="font-grotesk text-xl font-bold mb-3 text-slate-900 group-hover:text-hud-cyan transition-colors">
+                                Formal Methods
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                            <p class="text-xs text-slate-600 leading-relaxed font-sans mb-4">
                                 Inferring user, system, and adversary intent in multi-agent environments using probabilistic models, test-time prompt refinement, and self-supervised cognitive frameworks.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-400 uppercase flex justify-between items-center">
+                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-500 uppercase flex justify-between items-center">
                             <span>Key: Intentional AI</span>
                         </div>
                     </div>
@@ -374,14 +373,14 @@
                                 <span class="text-xs text-hud-cyan font-bold">DOMAIN 02</span>
                                 <i class="fa-solid fa-shield-halved text-hud-green text-lg"></i>
                             </div>
-                            <h3 class="font-grotesk text-xl font-bold mb-3 text-white group-hover:text-hud-cyan transition-colors">
+                            <h3 class="font-grotesk text-xl font-bold mb-3 text-slate-900 group-hover:text-hud-cyan transition-colors">
                                 Assured Cybersecurity &amp; Safety Guards
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                            <p class="text-xs text-slate-600 leading-relaxed font-sans mb-4">
                                 Formal methods, assume-guarantee reasoning (AGR), mathematical safety contracts, and real-time execution guards preventing neural network policy violations.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-400 uppercase flex justify-between items-center">
+                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-500 uppercase flex justify-between items-center">
                             <span>Key: MBSE &amp; Formal Methods</span>
                         </div>
                     </div>
@@ -392,14 +391,14 @@
                                 <span class="text-xs text-hud-cyan font-bold">DOMAIN 03</span>
                                 <i class="fa-solid fa-plane-departure text-hud-cyan text-lg"></i>
                             </div>
-                            <h3 class="font-grotesk text-xl font-bold mb-3 text-white group-hover:text-hud-cyan transition-colors">
+                            <h3 class="font-grotesk text-xl font-bold mb-3 text-slate-900 group-hover:text-hud-cyan transition-colors">
                                 Autonomous Avionics &amp; Swarm Systems
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                            <p class="text-xs text-slate-600 leading-relaxed font-sans mb-4">
                                 Computer vision for taxiway/runway navigation under severe distribution shifts (AssistTaxi benchmark), flight safety assurance, and cooperative autonomous swarms.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-400 uppercase flex justify-between items-center">
+                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-500 uppercase flex justify-between items-center">
                             <span>Key: NASA &amp; DARPA</span>
                         </div>
                     </div>
@@ -410,14 +409,14 @@
                                 <span class="text-xs text-hud-cyan font-bold">DOMAIN 04</span>
                                 <i class="fa-solid fa-heart-pulse text-assist-purple text-lg"></i>
                             </div>
-                            <h3 class="font-grotesk text-xl font-bold mb-3 text-white group-hover:text-hud-cyan transition-colors">
+                            <h3 class="font-grotesk text-xl font-bold mb-3 text-slate-900 group-hover:text-hud-cyan transition-colors">
                                 Complex Systems Biology &amp; Network Analysis
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                            <p class="text-xs text-slate-600 leading-relaxed font-sans mb-4">
                                 Deep learning assurance for Left Ventricular Assist Devices (LVADNet3D), medical image classification, nephrology representations (NORA), and biological network dynamics.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-400 uppercase flex justify-between items-center">
+                        <div class="pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-500 uppercase flex justify-between items-center">
                             <span>Key: Health AI</span>
                         </div>
                     </div>
@@ -429,14 +428,14 @@
         <section id="people" class="border-b border-hud-cyan/20 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-8">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-hud-black font-mono text-xs font-bold uppercase">03 / PERSONNEL DIRECTORY</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">03 / PERSONNEL DIRECTORY</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
-                    <span class="font-mono text-xs uppercase text-hud-cyan/70">FACULTY &amp; RESEARCHERS</span>
+                    <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">FACULTY &amp; RESEARCHERS</span>
                 </div>
 
                 <div class="mb-12">
                     <div class="flex items-center justify-between mb-6 pb-2 border-b border-hud-cyan/30 font-mono">
-                        <h3 class="font-grotesk text-2xl font-bold text-white flex items-center">
+                        <h3 class="font-grotesk text-2xl font-bold text-slate-900 flex items-center">
                             <i class="fa-solid fa-user-gear text-hud-cyan mr-3 text-xl"></i>
                             Principal Investigator &amp; Faculty
                         </h3>
@@ -457,19 +456,19 @@
                     <div class="hud-card">
                         <button onclick="toggleAccordion('acc-phd')" class="w-full p-5 flex justify-between items-center text-left hover:bg-hud-cyan/10 transition-all border-b border-transparent">
                             <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 border border-hud-cyan bg-hud-black text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">01</span>
+                                <span class="w-8 h-8 border border-hud-cyan bg-slate-100 text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">01</span>
                                 <div>
-                                    <h4 class="font-grotesk text-xl font-bold text-white">Doctoral Candidates &amp; Ph.D. Students</h4>
+                                    <h4 class="font-grotesk text-xl font-bold text-slate-900">Doctoral Candidates &amp; Ph.D. Students</h4>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <span id="phd-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-hud-black font-mono text-xs font-bold text-hud-cyan">0 Members</span>
+                                <span id="phd-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-slate-100 font-mono text-xs font-bold text-hud-cyan">0 Members</span>
                                 <i id="acc-phd-icon" class="fa-solid fa-chevron-down accordion-chevron text-hud-cyan text-lg"></i>
                             </div>
                         </button>
 
                         <div id="acc-phd" class="accordion-content">
-                            <div id="acc-phd-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-hud-black/60"></div>
+                            <div id="acc-phd-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-50/80"></div>
                         </div>
                     </div>
 
@@ -477,19 +476,19 @@
                     <div class="hud-card">
                         <button onclick="toggleAccordion('acc-masters')" class="w-full p-5 flex justify-between items-center text-left hover:bg-hud-cyan/10 transition-all border-b border-transparent">
                             <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 border border-hud-cyan bg-hud-black text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">02</span>
+                                <span class="w-8 h-8 border border-hud-cyan bg-slate-100 text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">02</span>
                                 <div>
-                                    <h4 class="font-grotesk text-xl font-bold text-white">Masters Student Researchers</h4>
+                                    <h4 class="font-grotesk text-xl font-bold text-slate-900">Masters Student Researchers</h4>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <span id="masters-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-hud-black font-mono text-xs font-bold text-hud-cyan">0 Members</span>
+                                <span id="masters-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-slate-100 font-mono text-xs font-bold text-hud-cyan">0 Members</span>
                                 <i id="acc-masters-icon" class="fa-solid fa-chevron-down accordion-chevron text-hud-cyan text-lg"></i>
                             </div>
                         </button>
 
                         <div id="acc-masters" class="accordion-content">
-                            <div id="acc-masters-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-hud-black/60"></div>
+                            <div id="acc-masters-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-50/80"></div>
                         </div>
                     </div>
 
@@ -497,19 +496,19 @@
                     <div class="hud-card">
                         <button onclick="toggleAccordion('acc-undergrads')" class="w-full p-5 flex justify-between items-center text-left hover:bg-hud-cyan/10 transition-all border-b border-transparent">
                             <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 border border-hud-cyan bg-hud-black text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">03</span>
+                                <span class="w-8 h-8 border border-hud-cyan bg-slate-100 text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">03</span>
                                 <div>
-                                    <h4 class="font-grotesk text-xl font-bold text-white">Undergraduate Student Researchers</h4>
+                                    <h4 class="font-grotesk text-xl font-bold text-slate-900">Undergraduate Student Researchers</h4>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <span id="undergrads-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-hud-black font-mono text-xs font-bold text-hud-cyan">0 Members</span>
+                                <span id="undergrads-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-slate-100 font-mono text-xs font-bold text-hud-cyan">0 Members</span>
                                 <i id="acc-undergrads-icon" class="fa-solid fa-chevron-down accordion-chevron text-hud-cyan text-lg"></i>
                             </div>
                         </button>
 
                         <div id="acc-undergrads" class="accordion-content">
-                            <div id="acc-undergrads-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-hud-black/60"></div>
+                            <div id="acc-undergrads-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-50/80"></div>
                         </div>
                     </div>
 
@@ -517,19 +516,19 @@
                     <div class="hud-card">
                         <button onclick="toggleAccordion('acc-alumni')" class="w-full p-5 flex justify-between items-center text-left hover:bg-hud-cyan/10 transition-all border-b border-transparent">
                             <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 border border-hud-cyan bg-hud-black text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">04</span>
+                                <span class="w-8 h-8 border border-hud-cyan bg-slate-100 text-hud-cyan flex items-center justify-center font-mono text-xs font-bold">04</span>
                                 <div>
-                                    <h4 class="font-grotesk text-xl font-bold text-white">Laboratory Alumni</h4>
+                                    <h4 class="font-grotesk text-xl font-bold text-slate-900">Laboratory Alumni</h4>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <span id="alumni-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-hud-black font-mono text-xs font-bold text-hud-cyan">0 Members</span>
+                                <span id="alumni-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-slate-100 font-mono text-xs font-bold text-hud-cyan">0 Members</span>
                                 <i id="acc-alumni-icon" class="fa-solid fa-chevron-down accordion-chevron text-hud-cyan text-lg"></i>
                             </div>
                         </button>
 
                         <div id="acc-alumni" class="accordion-content">
-                            <div id="acc-alumni-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-hud-black/60"></div>
+                            <div id="acc-alumni-grid" class="p-6 border-t border-hud-cyan/20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-50/80"></div>
                         </div>
                     </div>
 
@@ -541,33 +540,33 @@
         <section id="publications" class="border-b border-hud-cyan/20 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-8">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-hud-black font-mono text-xs font-bold uppercase">04 / PUBLICATIONS</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">04 / PUBLICATIONS</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
-                    <span class="font-mono text-xs uppercase text-hud-cyan/70">SCHOLARLY OUTPUT</span>
+                    <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">SCHOLARLY OUTPUT</span>
                 </div>
 
                 <div class="space-y-4 mb-8 hud-card p-4">
                     <div class="flex flex-col md:flex-row justify-between gap-4">
                         <div class="flex flex-wrap gap-1 font-mono text-xs" id="pub-topic-tabs">
-                            <span class="self-center font-bold mr-2 text-slate-400 text-[11px]">DOMAIN:</span>
-                            <button onclick="filterPubTopic('all')" class="pub-topic-btn active px-3 py-1 border border-hud-cyan bg-hud-cyan text-hud-black font-bold">All Domains</button>
-                            <button onclick="filterPubTopic('flight')" class="pub-topic-btn px-3 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">Avionics &amp; Flight</button>
-                            <button onclick="filterPubTopic('formal')" class="pub-topic-btn px-3 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">Formal Methods</button>
-                            <button onclick="filterPubTopic('medical')" class="pub-topic-btn px-3 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">Healthcare AI</button>
+                            <span class="self-center font-bold mr-2 text-slate-500 text-[11px]">DOMAIN:</span>
+                            <button onclick="filterPubTopic('all')" class="pub-topic-btn active px-3 py-1 border border-hud-cyan bg-hud-cyan text-white font-bold">All Domains</button>
+                            <button onclick="filterPubTopic('flight')" class="pub-topic-btn px-3 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">Avionics &amp; Flight</button>
+                            <button onclick="filterPubTopic('formal')" class="pub-topic-btn px-3 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">Formal Methods</button>
+                            <button onclick="filterPubTopic('medical')" class="pub-topic-btn px-3 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">Healthcare AI</button>
                         </div>
 
                         <div class="flex flex-wrap gap-1 font-mono text-xs" id="pub-year-tabs">
-                            <span class="self-center font-bold mr-2 text-slate-400 text-[11px]">YEAR:</span>
-                            <button onclick="filterPubYear('all')" class="pub-year-btn active px-2.5 py-1 border border-hud-cyan bg-hud-cyan text-hud-black font-bold">All Years</button>
-                            <button onclick="filterPubYear('2026')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">2026</button>
-                            <button onclick="filterPubYear('2025')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">2025</button>
-                            <button onclick="filterPubYear('2024')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">2024</button>
-                            <button onclick="filterPubYear('2023')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-hud-black text-slate-200 hover:border-hud-cyan">2023</button>
+                            <span class="self-center font-bold mr-2 text-slate-500 text-[11px]">YEAR:</span>
+                            <button onclick="filterPubYear('all')" class="pub-year-btn active px-2.5 py-1 border border-hud-cyan bg-hud-cyan text-white font-bold">All Years</button>
+                            <button onclick="filterPubYear('2026')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">2026</button>
+                            <button onclick="filterPubYear('2025')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">2025</button>
+                            <button onclick="filterPubYear('2024')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">2024</button>
+                            <button onclick="filterPubYear('2023')" class="pub-year-btn px-2.5 py-1 border border-hud-cyan/40 bg-white text-slate-700 hover:border-hud-cyan">2023</button>
                         </div>
                     </div>
 
                     <div class="relative w-full">
-                        <input type="text" id="pub-search" onkeyup="searchPublications()" placeholder="SEARCH RADAR: Title, author, conference, grant..." class="w-full pl-9 pr-4 py-2 text-xs font-mono border border-hud-cyan/40 bg-hud-black text-hud-cyan placeholder-slate-500 focus:outline-none focus:border-hud-cyan">
+                        <input type="text" id="pub-search" onkeyup="searchPublications()" placeholder="SEARCH RADAR: Title, author, conference, grant..." class="w-full pl-9 pr-4 py-2 text-xs font-mono border border-hud-cyan/40 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:border-hud-cyan">
                         <i class="fa-solid fa-crosshairs absolute left-3 top-3 text-xs text-hud-cyan"></i>
                     </div>
                 </div>
@@ -582,9 +581,9 @@
         <section id="repositories" class="border-b border-hud-cyan/20 py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-10">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-hud-black font-mono text-xs font-bold uppercase">05 / REPOSITORIES</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">05 / REPOSITORIES</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
-                    <span class="font-mono text-xs uppercase text-hud-cyan/70">OPEN SOURCE TOOLS</span>
+                    <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">OPEN SOURCE TOOLS</span>
                 </div>
 
                 <div id="repositories-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -597,22 +596,22 @@
         <section id="contact" class="py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-10">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-hud-black font-mono text-xs font-bold uppercase">06 / CONTACT</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">06 / CONTACT</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
-                    <span class="font-mono text-xs uppercase text-hud-cyan/70">LOCATION &amp; INQUIRIES</span>
+                    <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">LOCATION &amp; INQUIRIES</span>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                     <div class="lg:col-span-6 hud-card p-8 flex flex-col justify-between">
                         <div>
                             <span class="font-mono text-xs uppercase tracking-widest text-hud-cyan font-bold">FACILITY &amp; HEADQUARTERS</span>
-                            <h3 class="font-grotesk text-3xl font-bold mt-2 mb-6 text-white">Florida Institute of Technology</h3>
+                            <h3 class="font-grotesk text-3xl font-bold mt-2 mb-6 text-slate-900">Florida Institute of Technology</h3>
                             
-                            <div class="space-y-4 font-sans text-sm text-slate-300">
+                            <div class="space-y-4 font-sans text-sm text-slate-700">
                                 <div class="flex items-start space-x-3">
                                     <i class="fa-solid fa-location-dot mt-1 text-hud-cyan text-base"></i>
                                     <div>
-                                        <div class="font-bold text-white">ASSIST Research Laboratory</div>
+                                        <div class="font-bold text-slate-900">ASSIST Research Laboratory</div>
                                         <div>Olin Engineering Complex, Room 313</div>
                                         <div>150 W. University Blvd</div>
                                         <div>Melbourne, FL 32901, USA</div>
@@ -632,8 +631,8 @@
                         </div>
 
                         <div class="mt-8 pt-6 border-t border-hud-cyan/20 flex items-center justify-between font-mono text-xs">
-                            <span class="text-slate-400">COLLEGE OF ENGINEERING</span>
-                            <a href="https://research.fit.edu/assist-lab/" target="_blank" class="px-3 py-1.5 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-hud-black transition-all">
+                            <span class="text-slate-500">COLLEGE OF ENGINEERING</span>
+                            <a href="https://research.fit.edu/assist-lab/" target="_blank" class="px-3 py-1.5 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-white transition-all">
                                 External Portal <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
                             </a>
                         </div>
@@ -642,28 +641,28 @@
                     <div class="lg:col-span-6 hud-card p-8 flex flex-col justify-between relative overflow-hidden">
                         <div>
                             <span class="font-mono text-xs uppercase tracking-widest text-assist-purple font-bold">TACTICAL RADAR COORDINATES</span>
-                            <h4 class="font-grotesk text-2xl font-bold mt-2 mb-4 text-white">Olin Engineering Complex (OEC 313)</h4>
-                            <p class="text-xs text-slate-300 font-sans leading-relaxed mb-6">
+                            <h4 class="font-grotesk text-2xl font-bold mt-2 mb-4 text-slate-900">Olin Engineering Complex (OEC 313)</h4>
+                            <p class="text-xs text-slate-600 font-sans leading-relaxed mb-6">
                                 The ASSIST Research Lab is housed on the 3rd floor of the Olin Engineering Complex.
                             </p>
 
-                            <div class="border border-hud-cyan/30 bg-hud-black/80 p-4 space-y-3 font-mono text-xs">
+                            <div class="border border-hud-cyan/30 bg-slate-50/90 p-4 space-y-3 font-mono text-xs">
                                 <div class="flex justify-between items-center border-b border-hud-cyan/20 pb-2">
                                     <span class="font-bold text-hud-cyan"><i class="fa-solid fa-compass mr-1.5"></i> GPS Coordinates:</span>
-                                    <span class="text-white">28.06297° N, -80.62384° W</span>
+                                    <span class="text-slate-900">28.06297° N, -80.62384° W</span>
                                 </div>
                                 <div class="flex justify-between items-center border-b border-hud-cyan/20 pb-2">
                                     <span class="font-bold text-hud-cyan"><i class="fa-solid fa-graduation-cap mr-1.5"></i> Academic Unit:</span>
-                                    <span class="text-white">Dept. of Computer Engineering &amp; Sciences</span>
+                                    <span class="text-slate-900">Dept. of Computer Engineering &amp; Sciences</span>
                                 </div>
                                 <div class="flex justify-between items-center">
                                     <span class="font-bold text-hud-cyan"><i class="fa-solid fa-microchip mr-1.5"></i> Primary Focus:</span>
-                                    <span class="text-white">Formal Safety &amp; Autonomous Systems</span>
+                                    <span class="text-slate-900">Formal Safety &amp; Autonomous Systems</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-6 pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-400 text-right uppercase">
+                        <div class="mt-6 pt-4 border-t border-hud-cyan/20 font-mono text-[11px] text-slate-500 text-right uppercase">
                             MELBOURNE, FLORIDA • SPACE COAST HIGH-TECH CORRIDOR
                         </div>
                     </div>
@@ -672,16 +671,16 @@
         </section>
     </main>
 
-    <footer class="bg-hud-black border-t border-hud-cyan/30 text-white py-12 relative z-10">
+    <footer class="bg-slate-100 border-t border-hud-cyan/30 text-slate-800 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-8 border-b border-hud-cyan/20">
                 <div class="md:col-span-6 space-y-2">
                     <div class="font-grotesk text-2xl font-bold text-hud-cyan hud-glow-cyan">ASSIST RESEARCH LAB</div>
-                    <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                    <p class="text-xs font-mono text-slate-600 uppercase tracking-wider">
                         Assured Safety, Security and Intent with Systematic Tactics
                     </p>
                 </div>
-                <div class="md:col-span-6 md:text-right font-mono text-xs text-slate-400">
+                <div class="md:col-span-6 md:text-right font-mono text-xs text-slate-500">
                     <div>Florida Institute of Technology © <span id="year-span">2026</span></div>
                 </div>
             </div>
@@ -693,18 +692,18 @@
     </footer>
 
     <!-- Abstract Modal -->
-    <div id="abstract-modal" class="fixed inset-0 bg-hud-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div id="abstract-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="hud-card max-w-2xl w-full p-6 sm:p-8 relative">
-            <button onclick="closeAbstractModal()" class="absolute top-4 right-4 w-8 h-8 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-hud-black flex items-center justify-center font-mono text-sm transition-colors">
+            <button onclick="closeAbstractModal()" class="absolute top-4 right-4 w-8 h-8 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-white flex items-center justify-center font-mono text-sm transition-colors">
                 ✕
             </button>
             <div class="font-mono text-xs text-hud-cyan font-bold mb-2 uppercase">PUBLICATION ABSTRACT</div>
-            <h3 id="abstract-title" class="font-grotesk text-xl font-bold mb-4 text-white">Title Placeholder</h3>
-            <p id="abstract-text" class="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed bg-hud-black p-4 border border-hud-cyan/20 max-h-80 overflow-y-auto">
+            <h3 id="abstract-title" class="font-grotesk text-xl font-bold mb-4 text-slate-900">Title Placeholder</h3>
+            <p id="abstract-text" class="font-sans text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 border border-hud-cyan/20 max-h-80 overflow-y-auto">
                 Abstract content goes here...
             </p>
             <div class="mt-6 text-right">
-                <button onclick="closeAbstractModal()" class="px-4 py-2 bg-hud-cyan text-hud-black font-mono text-xs uppercase font-bold hover:bg-white transition-all">
+                <button onclick="closeAbstractModal()" class="px-4 py-2 bg-hud-cyan text-white font-mono text-xs uppercase font-bold hover:bg-hud-cyan-dark transition-all">
                     Close Abstract
                 </button>
             </div>
@@ -712,16 +711,16 @@
     </div>
 
     <!-- BibTeX Modal -->
-    <div id="bibtex-modal" class="fixed inset-0 bg-hud-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div id="bibtex-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="hud-card max-w-2xl w-full p-6 sm:p-8 relative">
-            <button onclick="closeBibtexModal()" class="absolute top-4 right-4 w-8 h-8 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-hud-black flex items-center justify-center font-mono text-sm transition-colors">
+            <button onclick="closeBibtexModal()" class="absolute top-4 right-4 w-8 h-8 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-white flex items-center justify-center font-mono text-sm transition-colors">
                 ✕
             </button>
             <div class="font-mono text-xs text-hud-cyan font-bold mb-2 uppercase">BIBTEX ENTRY</div>
-            <h3 id="bibtex-title" class="font-grotesk text-lg font-bold mb-4 text-white">Publication Title</h3>
+            <h3 id="bibtex-title" class="font-grotesk text-lg font-bold mb-4 text-slate-900">Publication Title</h3>
             
             <div class="relative">
-                <pre id="bibtex-code" class="bg-hud-black text-hud-green p-4 font-mono text-xs overflow-x-auto border border-hud-cyan/30 max-h-60 select-all"></pre>
+                <pre id="bibtex-code" class="bg-slate-900 text-hud-green p-4 font-mono text-xs overflow-x-auto border border-hud-cyan/30 max-h-60 select-all"></pre>
             </div>
 
             <div class="mt-6 flex justify-between items-center">
@@ -835,23 +834,23 @@
                         ${badge}
                         <div>
                             <div class="flex items-center space-x-4 mb-4">
-                                ${photoUrl ? `<img src="${photoUrl}" alt="${p.name}" class="w-16 h-16 object-cover border border-hud-cyan/40 rounded-none">` : `<div class="w-16 h-16 bg-hud-black border border-hud-cyan/30 flex items-center justify-center font-mono text-hud-cyan font-bold text-xl"><i class="fa-solid fa-user-astronaut"></i></div>`}
+                                ${photoUrl ? `<img src="${photoUrl}" alt="${p.name}" class="w-16 h-16 object-cover border border-hud-cyan/40 rounded-none">` : `<div class="w-16 h-16 bg-slate-100 border border-hud-cyan/30 flex items-center justify-center font-mono text-hud-cyan font-bold text-xl"><i class="fa-solid fa-user-astronaut"></i></div>`}
                                 <div>
                                     <span class="font-mono text-[10px] text-hud-cyan font-bold uppercase tracking-wider block">${p.title || 'Faculty Researcher'}</span>
-                                    <h4 class="font-grotesk text-xl font-bold text-white group-hover:text-hud-cyan transition-colors">${p.name}</h4>
+                                    <h4 class="font-grotesk text-xl font-bold text-slate-900 group-hover:text-hud-cyan transition-colors">${p.name}</h4>
                                 </div>
                             </div>
                             ${p.office || p.email || p.phone ? `
-                            <div class="font-mono text-xs text-slate-300 mb-3 space-y-1">
+                            <div class="font-mono text-xs text-slate-600 mb-3 space-y-1">
                                 ${p.office ? `<div><i class="fa-solid fa-door-open mr-1 text-hud-cyan"></i> ${p.office}</div>` : ''}
                                 ${p.email ? `<div><i class="fa-solid fa-envelope mr-1 text-hud-cyan"></i> ${p.email}</div>` : ''}
                                 ${p.phone ? `<div><i class="fa-solid fa-phone mr-1 text-hud-cyan"></i> ${p.phone}</div>` : ''}
                             </div>` : ''}
                             <hr class="border-hud-cyan/20 mb-3">
-                            <p class="font-sans text-xs text-slate-300 leading-relaxed mb-4">${p.bio || ''}</p>
+                            <p class="font-sans text-xs text-slate-700 leading-relaxed mb-4">${p.bio || ''}</p>
                         </div>
                         ${p.email ? `
-                        <a href="mailto:${p.email}" class="w-full py-2 bg-hud-black border border-hud-cyan/40 text-hud-cyan font-mono text-xs uppercase flex items-center justify-center hover:bg-hud-cyan hover:text-hud-black transition-all">
+                        <a href="mailto:${p.email}" class="w-full py-2 bg-slate-100 border border-hud-cyan/40 text-hud-cyan font-mono text-xs uppercase flex items-center justify-center hover:bg-hud-cyan hover:text-white transition-all">
                             <i class="fa-regular fa-envelope mr-2"></i> Contact ${p.name.split(' ')[0]}
                         </a>` : ''}
                     </div>
@@ -865,16 +864,16 @@
                 return items.map(p => {
                     const photoUrl = p.photo ? `people/assets/${p.photo}` : null;
                     return `
-                        <div class="p-4 border border-hud-cyan/30 bg-hud-black relative group">
+                        <div class="p-4 border border-hud-cyan/30 bg-white relative group">
                             <div class="flex items-start space-x-3">
-                                ${photoUrl ? `<img src="${photoUrl}" alt="${p.name}" class="w-12 h-12 object-cover border border-hud-cyan/40">` : `<div class="w-12 h-12 bg-hud-black border border-hud-cyan/20 flex items-center justify-center text-hud-cyan font-mono text-sm"><i class="fa-solid fa-user"></i></div>`}
+                                ${photoUrl ? `<img src="${photoUrl}" alt="${p.name}" class="w-12 h-12 object-cover border border-hud-cyan/40">` : `<div class="w-12 h-12 bg-slate-100 border border-hud-cyan/20 flex items-center justify-center text-hud-cyan font-mono text-sm"><i class="fa-solid fa-user"></i></div>`}
                                 <div>
                                     <span class="font-mono text-[10px] text-hud-cyan font-bold uppercase">${p.title || 'Researcher'}</span>
-                                    <h5 class="font-grotesk text-lg font-bold text-white">${p.name}</h5>
-                                    ${p.email ? `<p class="font-mono text-xs text-slate-400 mb-2">${p.email}</p>` : ''}
+                                    <h5 class="font-grotesk text-lg font-bold text-slate-900">${p.name}</h5>
+                                    ${p.email ? `<p class="font-mono text-xs text-slate-500 mb-2">${p.email}</p>` : ''}
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-300 font-sans mt-3">${p.bio || ''}</p>
+                            <p class="text-xs text-slate-700 font-sans mt-3">${p.bio || ''}</p>
                         </div>
                     `;
                 }).join('');
@@ -912,7 +911,7 @@
                 container.innerHTML = `
                     <div class="hud-card p-8 text-center">
                         <i class="fa-solid fa-radar text-2xl text-hud-cyan mb-2"></i>
-                        <p class="font-grotesk text-lg font-bold text-white">No publications matched your radar criteria.</p>
+                        <p class="font-grotesk text-lg font-bold text-slate-900">No publications matched your radar criteria.</p>
                     </div>
                 `;
                 return;
@@ -923,19 +922,19 @@
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
                         <div class="space-y-2 flex-grow">
                             <div class="flex flex-wrap items-center gap-2 font-mono text-[11px]">
-                                <span class="px-2 py-0.5 bg-hud-cyan text-hud-black font-bold">${pub.year}</span>
-                                <span class="px-2 py-0.5 border border-hud-cyan/40 bg-hud-black font-semibold text-hud-cyan">${pub.topicName}</span>
+                                <span class="px-2 py-0.5 bg-hud-cyan text-white font-bold">${pub.year}</span>
+                                <span class="px-2 py-0.5 border border-hud-cyan/40 bg-white font-semibold text-hud-cyan">${pub.topicName}</span>
                             </div>
-                            <h3 class="font-grotesk text-xl font-bold text-white leading-snug">${pub.title}</h3>
-                            <p class="font-mono text-xs text-assist-purple font-medium">${pub.authors}</p>
-                            <div class="font-sans text-xs italic text-slate-300">${pub.venue}</div>
+                            <h3 class="font-grotesk text-xl font-bold text-slate-900 leading-snug">${pub.title}</h3>
+                            <p class="font-mono text-xs text-assist-purple font-semibold">${pub.authors}</p>
+                            <div class="font-sans text-xs italic text-slate-600">${pub.venue}</div>
                         </div>
 
                         <div class="flex md:flex-col gap-2 shrink-0 self-start">
-                            <button onclick="openAbstractModal('${pub.id}')" class="px-3 py-1.5 border border-hud-cyan/40 bg-hud-black hover:border-hud-cyan text-hud-cyan font-mono text-xs font-semibold transition-all flex items-center justify-center">
+                            <button onclick="openAbstractModal('${pub.id}')" class="px-3 py-1.5 border border-hud-cyan/40 bg-white hover:border-hud-cyan hover:bg-hud-cyan/10 text-hud-cyan font-mono text-xs font-semibold transition-all flex items-center justify-center">
                                 <i class="fa-solid fa-align-left mr-1.5 text-[10px]"></i> Abstract
                             </button>
-                            <button onclick="openBibtexModal('${pub.id}')" class="px-3 py-1.5 border border-assist-purple bg-assist-purple/30 text-white hover:bg-assist-purple font-mono text-xs font-semibold transition-all flex items-center justify-center">
+                            <button onclick="openBibtexModal('${pub.id}')" class="px-3 py-1.5 border border-assist-purple bg-assist-purple/10 text-assist-purple hover:bg-assist-purple hover:text-white font-mono text-xs font-semibold transition-all flex items-center justify-center">
                                 <i class="fa-solid fa-quote-left mr-1.5 text-[10px]"></i> BibTeX
                             </button>
                         </div>
@@ -947,22 +946,22 @@
         function filterPubTopic(topic) {
             activePubTopic = topic;
             document.querySelectorAll('#pub-topic-tabs button').forEach(btn => {
-                btn.classList.remove('bg-hud-cyan', 'text-hud-black', 'font-bold');
-                btn.classList.add('bg-hud-black', 'text-slate-200');
+                btn.classList.remove('bg-hud-cyan', 'text-white', 'font-bold');
+                btn.classList.add('bg-white', 'text-slate-700');
             });
-            event.target.classList.remove('bg-hud-black', 'text-slate-200');
-            event.target.classList.add('bg-hud-cyan', 'text-hud-black', 'font-bold');
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-hud-cyan', 'text-white', 'font-bold');
             searchPublications();
         }
 
         function filterPubYear(year) {
             activePubYear = year;
             document.querySelectorAll('#pub-year-tabs button').forEach(btn => {
-                btn.classList.remove('bg-hud-cyan', 'text-hud-black', 'font-bold');
-                btn.classList.add('bg-hud-black', 'text-slate-200');
+                btn.classList.remove('bg-hud-cyan', 'text-white', 'font-bold');
+                btn.classList.add('bg-white', 'text-slate-700');
             });
-            event.target.classList.remove('bg-hud-black', 'text-slate-200');
-            event.target.classList.add('bg-hud-cyan', 'text-hud-black', 'font-bold');
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-hud-cyan', 'text-white', 'font-bold');
             searchPublications();
         }
 
@@ -1006,8 +1005,8 @@
             repoGrid.innerHTML = repoList.map(repo => {
                 const highlightsList = (repo.highlights || []).map(h => `<li>• ${h}</li>`).join('');
                 const badgeColor = repo.type_color === 'purple' ? 'bg-assist-purple text-white' : 
-                                   repo.type_color === 'green' ? 'bg-hud-green text-hud-black' : 
-                                   'bg-hud-cyan text-hud-black';
+                                   repo.type_color === 'green' ? 'bg-hud-green text-white' : 
+                                   'bg-hud-cyan text-white';
                 const borderAccent = repo.type_color === 'purple' ? 'border-assist-purple' : 
                                      repo.type_color === 'green' ? 'border-hud-green' : 
                                      'border-hud-cyan';
@@ -1019,22 +1018,22 @@
                                 <span class="px-2 py-0.5 ${badgeColor} font-bold text-[10px] uppercase">${repo.type || 'SOFTWARE'}</span>
                                 <span class="text-xs text-hud-cyan"><i class="fa-solid fa-code mr-1"></i> ${repo.language || ''}</span>
                             </div>
-                            <h3 class="font-grotesk text-2xl font-bold text-white group-hover:text-hud-cyan transition-colors mb-2">
+                            <h3 class="font-grotesk text-2xl font-bold text-slate-900 group-hover:text-hud-cyan transition-colors mb-2">
                                 ${repo.name}
                             </h3>
-                            <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">
+                            <p class="text-xs text-slate-600 leading-relaxed font-sans mb-4">
                                 ${repo.description || ''}
                             </p>
-                            <ul class="text-xs font-mono space-y-1 text-slate-400 mb-4 border-l-2 ${borderAccent} pl-3">
+                            <ul class="text-xs font-mono space-y-1 text-slate-600 mb-4 border-l-2 ${borderAccent} pl-3">
                                 ${highlightsList}
                             </ul>
                         </div>
                         <div class="pt-4 border-t border-hud-cyan/20 flex justify-between items-center font-mono text-xs">
-                            <span class="text-slate-400">LICENSE: ${repo.license || 'N/A'}</span>
+                            <span class="text-slate-500">LICENSE: ${repo.license || 'N/A'}</span>
                             <span class="font-bold text-hud-cyan">VER: ${repo.version || '1.0.0'}</span>
                         </div>
                         <div class="flex justify-end w-full">
-                          <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="mt-3 px-3 py-1.5 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-hud-black transition-all">
+                          <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="mt-3 px-3 py-1.5 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan hover:text-white transition-all">
                             Visit Repository <i class="fa-brands fa-git-alt ml-1"></i>
                           </a>
                         </div>
