@@ -1,0 +1,8 @@
+{
+  "name": "Dr. Parth Ganeriwala",
+  "title": "Research Scholar, ASSIST Lab",
+  "title_rank": 1,
+  "bio": "Parth Ganeriwala received his Ph.D. in Computer Science from Florida Institute of Technology in May 2026, advised by Dr. Siddhartha Bhattacharyya. His dissertation, What is Common Knowledge Across Domains? Investigating Shared Representations in Transfer Learning, studies what models carry over when they are moved to new tasks. He also holds an M.S. in Computer Science from Florida Tech and a B.E. in Computer Science from BITS Pilani, Dubai.\n\nHis research covers formal verification and assurance of learning-enabled, safety-critical autonomous systems, including transfer learning, cognitive architectures, and computer vision for aviation. At the ASSIST Lab he has worked on projects funded by NASA, DARPA, and NAVAIR. He co-created the AssistTaxi dataset for taxiway and runway analysis and also mentors undergraduate and high school researchers.\n\nParth is also a Software Engineer II at Avidyne, where he works on embedded avionics software.",
+  "photo": "https://research.fit.edu/assist-lab/people/parth-g.jpg",
+  "email": ""
+}

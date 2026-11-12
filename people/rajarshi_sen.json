@@ -1,8 +1,8 @@
 {
   "name": "Rajarshi Sen",
-  "title": "Research Assistant",
+  "title": "Ph.D. in Computer Science",
   "title_rank": 2,
-  "bio": "Rajarshi Sen is a PhD student in Computer Science at Florida Institute of Technology (FIT), Melbourne, Florida. He is currently working on two research projects, NASA ULI TRANSCEND, where he is researching SOAR cognitive architecture and machine learning, and a DARPA project involving SOAR and formal model checking tools including PRISM.",
+  "bio": "Rajarshi Sen is a PhD student in Computer Science at Florida Institute of Technology (FIT), Melbourne, Florida. He holds a Bachelor of Science in Computer Science and Engineering from Chittagong University of Engineering and Technology (CUET), Bangladesh. Previously, he was a full time Teaching Assistant at East Delta University, Bangladesh. He is currently working on two research projects, NASA ULI TRANSCEND, where he is researching SOAR cognitive architecture and machine learning, and a DARPA project involving SOAR and formal model checking tools including PRISM. Rajarshi also served as a Teaching Assistant for CSE-4001 Operating Systems under Dr. Eraldo Ribeiro at FIT. His research interests include autonomous systems, cognitive agents, formal verification, and ML.",
   "photo": "rajarshi.png",
   "email": "rsen2025@my.fit.edu"
 }
