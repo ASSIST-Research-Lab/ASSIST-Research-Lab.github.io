@@ -13,21 +13,16 @@
             theme: {
                 extend: {
                     colors: {
-                        'hud-black': '#f8fafc',
-                        'hud-card': 'rgba(255, 255, 255, 0.90)',
                         'hud-cyan': '#0284c7',
                         'hud-cyan-dark': '#0369a1',
                         'hud-green': '#15803d',
                         'assist-purple': '#7e22ce',
-                        'assist-purple-dark': '#581c87',
-                        'hud-border': 'rgba(2, 132, 199, 0.25)',
-                        'hud-amber': '#d97706'
+                        'assist-purple-dark': '#581c87'
                     },
                     fontFamily: {
-                        serif: ['Newsreader', 'Georgia', 'serif'],
                         sans: ['Inter', 'system-ui', 'sans-serif'],
                         grotesk: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'Share Tech Mono', 'monospace']
+                        mono: ['JetBrains Mono', 'monospace']
                     }
                 }
             }
@@ -37,7 +32,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -148,7 +143,6 @@
         }
 
         .accordion-content.open {
-            max-height: 3500px;
             opacity: 1;
         }
 
@@ -172,7 +166,7 @@
     </div>
 
     <!-- HUD Grid and Scanline Overlay Layers -->
-    <div class="fixed inset-0 w-full h-full z-[-2] pointer-events-none hud-grid hud-scanlines bg-gradient-to-b from-slate-50/90 via-slate-50/70 to-slate-25/95"></div>
+    <div class="fixed inset-0 w-full h-full z-[-2] pointer-events-none hud-grid hud-scanlines bg-gradient-to-b from-slate-50/90 via-slate-50/70"></div>
 
     <!-- Target Reticle Overlay Graphics -->
     <div class="fixed top-12 left-4 w-6 h-6 border-t-2 border-l-2 border-hud-cyan/50 pointer-events-none z-30"></div>
@@ -220,7 +214,7 @@
                     <a href="#contact" class="px-4 py-2 bg-assist-purple/10 text-assist-purple border border-assist-purple hover:bg-assist-purple hover:text-white transition-all shadow-[0_0_10px_rgba(126,34,206,0.15)]">06. Contact</a>
                 </nav>
 
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan/10">
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan/10">
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
@@ -850,9 +844,7 @@
                 console.warn("Background manifest load error:", err);
             }
 
-            if (bgPlaylist.length === 0) {
-                bgPlaylist = ['assets/backgrounds/video1.mp4', 'assets/backgrounds/video2.mp4'];
-            }
+            if (bgPlaylist.length === 0) return;
 
             const player1 = document.getElementById('hud-bg-video-1');
             const player2 = document.getElementById('hud-bg-video-2');
@@ -924,9 +916,12 @@
 
             rank0And1.sort((a, b) => a.title_rank - b.title_rank);
 
+            // Photos are either a file in people/assets/ or an absolute URL
+            const photoSrc = (photo) => !photo ? null : /^https?:\/\//.test(photo) ? photo : `people/assets/${photo}`;
+
             facultyGrid.innerHTML = rank0And1.map(p => {
                 const isPI = p.title_rank === 0;
-                const photoUrl = p.photo ? `people/assets/${p.photo}` : null;
+                const photoUrl = photoSrc(p.photo);
                 const cardClass = isPI ? 'hud-card-purple border-assist-purple' : '';
                 const badge = isPI ? `<div class="absolute top-0 right-0 bg-assist-purple text-white font-mono text-[9px] font-bold px-3 py-1 uppercase tracking-widest">PRINCIPAL INVESTIGATOR</div>` : '';
 
@@ -948,7 +943,7 @@
                                 ${p.phone ? `<div><i class="fa-solid fa-phone mr-1 text-hud-cyan"></i> ${p.phone}</div>` : ''}
                             </div>` : ''}
                             <hr class="border-hud-cyan/20 mb-3">
-                            <p class="font-sans text-xs text-slate-700 leading-relaxed mb-4">${p.bio || ''}</p>
+                            <p class="font-sans text-xs text-slate-700 leading-relaxed mb-4 whitespace-pre-line">${p.bio || ''}</p>
                         </div>
                         ${p.email ? `
                         <a href="mailto:${p.email}" class="w-full py-2 bg-slate-100 border border-hud-cyan/40 text-hud-cyan font-mono text-xs uppercase flex items-center justify-center hover:bg-hud-cyan hover:text-white transition-all">
@@ -963,7 +958,7 @@
                     return `<div class="col-span-3 text-slate-500 font-mono text-xs">No entries currently listed in this category.</div>`;
                 }
                 return items.map(p => {
-                    const photoUrl = p.photo ? `people/assets/${p.photo}` : null;
+                    const photoUrl = photoSrc(p.photo);
                     return `
                         <div class="p-4 border border-hud-cyan/30 bg-white relative group">
                             <div class="flex items-start space-x-3">
@@ -974,7 +969,7 @@
                                     ${p.email ? `<p class="font-mono text-xs text-slate-500 mb-2">${p.email}</p>` : ''}
                                 </div>
                             </div>
-                            <p class="text-xs text-slate-700 font-sans mt-3">${p.bio || ''}</p>
+                            <p class="text-xs text-slate-700 font-sans mt-3 whitespace-pre-line">${p.bio || ''}</p>
                         </div>
                     `;
                 }).join('');
@@ -1149,13 +1144,9 @@
             const content = document.getElementById(id);
             const icon = document.getElementById(id + '-icon');
             
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                if (icon) icon.classList.remove('rotate');
-            } else {
-                content.classList.add('open');
-                if (icon) icon.classList.add('rotate');
-            }
+            const isOpen = content.classList.toggle('open');
+            content.style.maxHeight = isOpen ? `${content.scrollHeight}px` : '';
+            if (icon) icon.classList.toggle('rotate', isOpen);
         }
 
         function openAbstractModal(pubId) {

@@ -1,0 +1,8 @@
+{
+  "name": "Amy B. Alvarez",
+  "title": "B.S. in Computer Engineering and Mathematics, Minor in Computational Mathematics",
+  "title_rank": 4,
+  "bio": "Amy Alvarez is pursuing her B.S. in Computer Engineering and Mathematics at the Florida Institute of Technology. She investigates how autonomous systems perceive, decide, and act in safety-critical settings.\n\nHer work lies at the intersection of perception and verification for real-world autonomy, with applications in aerospace and autonomous navigation. She has developed and contributed to methodologies in computer vision, spanning semantic scene understanding, automated line identification, and Gaussian splatting-based 3D reconstruction, including contributions to the AssistTaxi dataset for runway and taxiway analysis. Her research is supported through the Automated Data Labeling and Assurance for Autonomous Aircraft Vision Systems (ADLAAAVS) project, funded by NASA. In parallel, she has experience in FPGA development and hardware–software integration, focusing on embedded and reconfigurable computing for real-time systems.\n\nResearch interests: Autonomous Systems, Computer Vision, Formal Verification, Reinforcement Learning, Reconfigurable Computing, Machine Learning.",
+  "photo": "https://research.fit.edu/assist-lab/people/WhatsApp-Image-2026-04-25-at-2.05.28-PM.jpeg",
+  "email": ""
+}

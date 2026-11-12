@@ -1,8 +1,8 @@
 {
   "name": "Mohammad Hafeez Khan",
-  "title": "Research Assistant",
+  "title": "Ph.D. in Computer Science",
   "title_rank": 2,
-  "bio": "Hafeez Khan, currently pursuing his Ph.D. in Computer Science at Florida Tech, has a keen interest in advanced computer vision research. Presently he is working on Automated Data Labeling and Assurance for Autonomous Aircraft Vision Systems (ADLAAAVS) project, funded by NASA. His research interests’ range over avant-garde techniques such as autoencoders, vision transformers, diffusion models and few/zero-shot learning.",
+  "bio": "Hafeez Khan, currently pursuing his Ph.D. in Computer Science at Florida Tech, has a keen interest in advanced computer vision research. Presently he is working on Automated Data Labeling and Assurance for Autonomous Aircraft Vision Systems (ADLAAAVS) project, funded by NASA. His research interests range over avant-garde techniques such as autoencoders, vision transformers, diffusion models and few/zero-shot learning.\n\nHafeez portrays a strong background in teaching and research through his role as a Teaching Assistant for CSE2010: Data Structures and Algorithms under the guidance of Dr. Philip Chan. With a recent publication at CVPR24, Hafeez authored seven research publications. Notably, he collaborated with NASA to create a vanguard annotation framework for efficient taxiway dataset labeling.",
   "photo": "hafeez.jpg",
   "email": "mkhan@my.fit.edu"
 }

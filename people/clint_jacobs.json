@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "title": "Research Assistant",
+  "name": "Clint Jacobs",
+  "title": "Ph.D. Student",
   "title_rank": 2,
-  "bio": "",
-  "photo": "",
+  "bio": "Mr. Jacobs is a seasoned System Integration, Test, and Evaluation Engineering management professional with extensive experience in technical and functional leadership. He holds a Bachelor of Science in Electrical Engineering from the University of Texas at Arlington, a Master of Science in Electrical Engineering with a focus on Computer Engineering, Networking, and Communications from Southern Methodist University, Dallas, TX, and a Master of Science in Information Assurance and Cybersecurity from the Florida Institute of Technology, Melbourne, FL.\n\nWith over 15 years of experience in cybersecurity, Mr. Jacobs holds CISSP, CEH, and Security+ certifications. His research interests focus on designing, creating, and executing system security models for DoD platforms, defining analysis, mitigation, and reporting processes for both aircraft and ground-based systems. His current Ph.D. research is centered on System of Systems modeling for security, aiming to enhance the interoperability, resilience, and defense mechanisms of interconnected autonomous and defense systems. He is also an FAA-certified Private Pilot and Aircraft Dispatcher.",
+  "photo": "https://research.fit.edu/assist-lab/people/clint.jpg",
   "email": ""
 }
