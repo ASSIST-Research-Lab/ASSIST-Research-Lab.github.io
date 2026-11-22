@@ -1,0 +1,23 @@
+{
+    "event": "Florida Tech Discovery Day",
+    "description": "On November 21, 2026, ASSIST Lab researchers demoed autonomous-systems work at the Electrical Engineering & Computer Science (EECS) table: a flight-assurance testing UI and a programmable robot kit.",
+    "photos": [
+        { "file": "open-house-01.jpg", "caption": "ASSIST Lab team at the EECS table" },
+        { "file": "open-house-11.jpg", "caption": "Our youngest programmer of the day" },
+        { "file": "open-house-14.jpg", "caption": "Explaining the runtime monitor to a prospective student" },
+        { "file": "open-house-02.jpg", "caption": "Demo station with the flight-assurance testing UI" },
+        { "file": "open-house-03.jpg", "caption": "Visiting the ASSIST Lab demo" },
+        { "file": "open-house-04.jpg", "caption": "Walking prospective students through the robot demo" },
+        { "file": "open-house-05.jpg", "caption": "Answering questions about the research" },
+        { "file": "open-house-06.jpg", "caption": "Hands-on with the robot kit" },
+        { "file": "open-house-07.jpg", "caption": "A visitor programs the robot" },
+        { "file": "open-house-08.jpg", "caption": "Writing code for the robot" },
+        { "file": "open-house-09.jpg", "caption": "Explaining the flight-assurance testing UI" },
+        { "file": "open-house-10.jpg", "caption": "Talking with a prospective student" },
+        { "file": "open-house-12.jpg", "caption": "Trying out the demo" },
+        { "file": "open-house-13.jpg", "caption": "Showing the flight-assurance testing UI to a visiting family" },
+        { "file": "open-house-15.jpg", "caption": "Walking through the demo at the EECS table" },
+        { "file": "open-house-16.jpg", "caption": "A closer look at the monitoring dashboard" },
+        { "file": "open-house-17.jpg", "caption": "Talking research with a prospective student" }
+    ]
+}

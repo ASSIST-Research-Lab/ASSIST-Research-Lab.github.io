@@ -211,7 +211,8 @@
                     <a href="#people" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">03. Personnel</a>
                     <a href="#publications" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">04. Publications</a>
                     <a href="#repositories" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">05. Repositories</a>
-                    <a href="#contact" class="px-4 py-2 bg-assist-purple/10 text-assist-purple border border-assist-purple hover:bg-assist-purple hover:text-white transition-all shadow-[0_0_10px_rgba(126,34,206,0.15)]">06. Contact</a>
+                    <a href="#activities" class="px-3 py-2 border border-transparent text-slate-700 hover:text-hud-cyan hover:border-hud-cyan/40 hover:bg-hud-cyan/10 transition-all">06. Activities</a>
+                    <a href="#contact" class="px-4 py-2 bg-assist-purple/10 text-assist-purple border border-assist-purple hover:bg-assist-purple hover:text-white transition-all shadow-[0_0_10px_rgba(126,34,206,0.15)]">07. Contact</a>
                 </nav>
 
                 <button onclick="toggleMobileMenu()" class="lg:hidden p-2 border border-hud-cyan text-hud-cyan hover:bg-hud-cyan/10">
@@ -226,7 +227,8 @@
             <a href="#people" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">03. Personnel</a>
             <a href="#publications" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">04. Publications</a>
             <a href="#repositories" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">05. Repositories</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-assist-purple/10 text-assist-purple border border-assist-purple">06. Contact</a>
+            <a href="#activities" onclick="toggleMobileMenu()" class="block py-2 px-3 border border-hud-cyan/30 text-slate-700 hover:border-hud-cyan hover:bg-hud-cyan/10">06. Activities</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 px-3 bg-assist-purple/10 text-assist-purple border border-assist-purple">07. Contact</a>
         </div>
     </header>
 
@@ -687,11 +689,43 @@
             </div>
         </section>
 
-        <!-- SECTION 06: CONTACT SECTION -->
+        <!-- SECTION 06: LAB ACTIVITIES PHOTO GALLERY -->
+        <section id="activities" class="border-b border-hud-cyan/20 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center space-x-3 mb-8">
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">06 / LAB ACTIVITIES</span>
+                    <div class="h-px bg-hud-cyan/30 flex-grow"></div>
+                    <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">OUTREACH &amp; EVENTS</span>
+                </div>
+
+                <div class="hud-card p-5 mb-6">
+                    <h3 id="gallery-event" class="font-grotesk text-2xl font-bold text-slate-900"></h3>
+                    <p id="gallery-description" class="mt-2 text-sm text-slate-700 font-sans leading-relaxed"></p>
+                </div>
+
+                <!-- First 3 photos; the rest go in the "See more" accordion. Loaded from assets/gallery/manifest.json -->
+                <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
+
+                <div id="gallery-more" class="hud-card mt-6 hidden">
+                    <button onclick="toggleAccordion('acc-gallery')" class="w-full p-5 flex justify-between items-center text-left hover:bg-hud-cyan/10 transition-all">
+                        <h4 class="font-grotesk text-xl font-bold text-slate-900">See more photos</h4>
+                        <div class="flex items-center space-x-3">
+                            <span id="gallery-more-count" class="px-2.5 py-1 border border-hud-cyan/40 bg-slate-100 font-mono text-xs font-bold text-hud-cyan"></span>
+                            <i id="acc-gallery-icon" class="fa-solid fa-chevron-down accordion-chevron text-hud-cyan text-lg"></i>
+                        </div>
+                    </button>
+                    <div id="acc-gallery" class="accordion-content">
+                        <div id="gallery-grid-more" class="p-4 border-t border-hud-cyan/20 grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50/80"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 07: CONTACT SECTION -->
         <section id="contact" class="py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center space-x-3 mb-10">
-                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">06 / CONTACT</span>
+                    <span class="px-2.5 py-0.5 bg-hud-cyan text-white font-mono text-xs font-bold uppercase">07 / CONTACT</span>
                     <div class="h-px bg-hud-cyan/30 flex-grow"></div>
                     <span class="font-mono text-xs uppercase text-hud-cyan font-semibold">LOCATION &amp; INQUIRIES</span>
                 </div>
@@ -803,6 +837,23 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Photo Lightbox -->
+    <div id="lightbox" onclick="if (event.target === this) closeLightbox()" class="fixed inset-0 bg-slate-900/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" aria-label="Close photo" class="absolute top-4 right-4 w-10 h-10 border border-white/60 text-white hover:bg-white hover:text-slate-900 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button onclick="stepLightbox(-1)" aria-label="Previous photo" class="absolute left-2 sm:left-6 w-10 h-10 border border-white/60 text-white hover:bg-white hover:text-slate-900 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <figure class="max-w-5xl w-full">
+            <img id="lightbox-img" src="" alt="" class="w-full max-h-[80vh] object-contain border border-hud-cyan/40">
+            <figcaption id="lightbox-caption" class="mt-3 text-center font-mono text-xs text-white"></figcaption>
+        </figure>
+        <button onclick="stepLightbox(1)" aria-label="Next photo" class="absolute right-2 sm:right-6 w-10 h-10 border border-white/60 text-white hover:bg-white hover:text-slate-900 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
 
     <!-- BibTeX Modal -->
@@ -1139,6 +1190,70 @@
             }).join('');
         }
 
+        // 5. DYNAMICALLY LOAD PHOTO GALLERY FROM assets/gallery/manifest.json
+        let galleryPhotos = [];
+        let lightboxIdx = 0;
+
+        async function loadGallery() {
+            const section = document.getElementById('activities');
+            try {
+                const res = await fetch('assets/gallery/manifest.json');
+                if (!res.ok) throw new Error('assets/gallery/manifest.json not found');
+                const data = await res.json();
+                galleryPhotos = data.photos || [];
+                document.getElementById('gallery-event').innerText = data.event || '';
+                document.getElementById('gallery-description').innerText = data.description || '';
+            } catch (err) {
+                console.warn("Gallery manifest load error:", err);
+            }
+
+            if (galleryPhotos.length === 0) {
+                section.classList.add('hidden');
+                return;
+            }
+
+            const VISIBLE = 3;
+            const tile = (photo, i) => `
+                <button onclick="openLightbox(${i})" class="group relative overflow-hidden border border-hud-cyan/30 bg-white aspect-[4/3]">
+                    <img src="assets/gallery/${photo.file}" alt="${photo.caption || ''}" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <span class="absolute inset-x-0 bottom-0 bg-slate-900/70 text-white font-mono text-[10px] text-left px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">${photo.caption || ''}</span>
+                </button>`;
+
+            document.getElementById('gallery-grid').innerHTML = galleryPhotos.slice(0, VISIBLE).map(tile).join('');
+
+            const extra = galleryPhotos.slice(VISIBLE);
+            if (extra.length > 0) {
+                document.getElementById('gallery-grid-more').innerHTML = extra.map((photo, i) => tile(photo, i + VISIBLE)).join('');
+                document.getElementById('gallery-more-count').innerText = `+${extra.length} Photos`;
+                document.getElementById('gallery-more').classList.remove('hidden');
+            }
+        }
+
+        function openLightbox(idx) {
+            lightboxIdx = (idx + galleryPhotos.length) % galleryPhotos.length;
+            const photo = galleryPhotos[lightboxIdx];
+            const img = document.getElementById('lightbox-img');
+            img.src = `assets/gallery/${photo.file}`;
+            img.alt = photo.caption || '';
+            document.getElementById('lightbox-caption').innerText = `${photo.caption || ''}  ·  ${lightboxIdx + 1} / ${galleryPhotos.length}`;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function stepLightbox(delta) {
+            openLightbox(lightboxIdx + delta);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') stepLightbox(-1);
+            if (e.key === 'ArrowRight') stepLightbox(1);
+        });
+
         // Modals & Accordion Functions
         function toggleAccordion(id) {
             const content = document.getElementById(id);
@@ -1200,6 +1315,7 @@
             loadPeopleDirectory();
             loadPublications();
             loadRepositories();
+            loadGallery();
             document.getElementById('year-span').innerText = new Date().getFullYear();
         };
     </script>
